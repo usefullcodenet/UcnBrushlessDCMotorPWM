@@ -1,0 +1,25 @@
+#######################################
+# Syntax Coloring Map
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+#xxxxxx	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+SetPower	KEYWORD2
+SetAbortFlag	KEYWORD2
+ClearAbortFlag	KEYWORD2
+DoRotate	KEYWORD2
+DoRotateLoop	KEYWORD2
+calcRequireStepCount	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+

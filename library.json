@@ -1,0 +1,24 @@
+{
+  "name": "UcnBrushlessDCMotorPWM",
+  "keywords": "blushless dc motor, BLDC, ESP32, ESP8266, DRV8313, L298N, servo, gimbal",
+  "description": "Brushless DC motor(BLDC) drive like as servo motor (MOS-FET, DRV8313, L298N etc)",
+  "repository":
+  {
+    "type": "git",
+    "url": "https://github.com/usefullcodenet/UcnBrushlessDCMotorPWM.git"
+  },
+  "authors":
+  [
+    {
+      "name": "usefullcode.net",
+      "email": "usefullcode@gmail.com",
+      "url": "https://www.usefullcode.net/",
+      "maintainer": true
+    }
+  ],
+  "license": "MIT",
+  "version": "1.0",
+  "downloadUrl": "https://github.com/usefullcodenet/UcnBrushlessDCMotorPWM/archive/v1.0.zip",
+  "frameworks": "arduino",
+  "platforms": "*"
+}
