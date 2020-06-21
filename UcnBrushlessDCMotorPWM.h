@@ -47,8 +47,8 @@ protected:
 
 #if defined(ESP32)
 	uint8_t _nChannelIn1_eps32 = 0;
-	uint8_t _nChannelIn1_eps32 = 1;
-	uint8_t _nChannelIn1_eps32 = 2;
+	uint8_t _nChannelIn2_eps32 = 1;
+	uint8_t _nChannelIn3_eps32 = 2;
 #endif
 
 	int8_t _nPinEn1;
@@ -150,9 +150,9 @@ protected:
 	if (nPwmFreq == 0)
 		nPwmFreq = 48000;				//default 48KHz PWM
 
-	ledcSetup(_nPinIn1, nPwmFreq, 8);	//8bit PWM
-	ledcSetup(_nPinIn2, nPwmFreq, 8);	//8bit PWM
-	ledcSetup(_nPinIn3, nPwmFreq, 8);	//8bit PWM
+	ledcSetup(_nChannelIn1_eps32, nPwmFreq, 8); 	//8bit PWM
+	ledcSetup(_nChannelIn2_eps32, nPwmFreq, 8); 	//8bit PWM
+	ledcSetup(_nChannelIn3_eps32, nPwmFreq, 8); 	//8bit PWM
 
 	ledcAttachPin(_nPinIn1, _nChannelIn1_eps32);
 	ledcAttachPin(_nPinIn2, _nChannelIn2_eps32);
@@ -415,6 +415,10 @@ public:
 				break;
 
 			delayMicroseconds(nDelayMicroSec);
+#ifdef  ESP32
+			vTaskDelay(1);		// for FreeRTOS
+#endif
+			
 		}
 	}
 
