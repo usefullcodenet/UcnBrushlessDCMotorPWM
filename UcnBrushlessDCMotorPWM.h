@@ -168,6 +168,15 @@ protected:
 	analogWriteFreq(nPwmFreq);
 #endif
 
+#if defined(ARDUINO_ARCH_STM32)
+
+		if (nPwmFreq == 0)
+			nPwmFreq = 100000;			//default 100KHz PWM
+		
+		analogWriteResolution(8);		//8bit PWM
+		analogWriteFrequency(nPwmFreq);
+#endif
+		
 	}
 
 
@@ -175,15 +184,9 @@ protected:
 
 	virtual inline void WritePwmValue(uint8_t nPinOrChannel, uint8_t nValue) const
 	{
-#if defined(ARDUINO_ARCH_AVR)
-		analogWrite(nPinOrChannel, nValue);
-#endif
-
 #if defined(ESP32)
 		ledcWrite(nPinOrChannel, nValue);
-#endif
-
-#if defined(ESP8266)
+#else
 		analogWrite(nPinOrChannel, nValue);
 #endif
 	}
@@ -198,19 +201,11 @@ protected:
 
 	virtual inline void WritePwm123(void) const
 	{
-#if defined(ARDUINO_ARCH_AVR)
-		WritePwm(_nPinIn1, _nPhaseIndex1);
-		WritePwm(_nPinIn2, _nPhaseIndex2);
-		WritePwm(_nPinIn3, _nPhaseIndex3);
-#endif
-
 #if defined(ESP32)
 		WritePwm(_nChannelIn1_eps32, _nPhaseIndex1);
 		WritePwm(_nChannelIn2_eps32, _nPhaseIndex2);
 		WritePwm(_nChannelIn3_eps32, _nPhaseIndex3);
-#endif
-
-#if defined(ESP8266)
+#else
 		WritePwm(_nPinIn1, _nPhaseIndex1);
 		WritePwm(_nPinIn2, _nPhaseIndex2);
 		WritePwm(_nPinIn3, _nPhaseIndex3);
@@ -225,19 +220,11 @@ public:
 
 	virtual void suspend(uint8_t value = 0)
 	{
-#if defined(ARDUINO_ARCH_AVR)
-		WritePwmValue(_nPinIn1, value);
-		WritePwmValue(_nPinIn2, value);
-		WritePwmValue(_nPinIn3, value);
-#endif
-
 #if defined(ESP32)
 		WritePwmValue(_nChannelIn1_eps32, value);
 		WritePwmValue(_nChannelIn2_eps32, value);
 		WritePwmValue(_nChannelIn3_eps32, value);
-#endif
-
-#if defined(ESP8266)
+#else
 		WritePwmValue(_nPinIn1, value);
 		WritePwmValue(_nPinIn2, value);
 		WritePwmValue(_nPinIn3, value);

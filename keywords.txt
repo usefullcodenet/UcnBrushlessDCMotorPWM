@@ -18,6 +18,7 @@ ClearAbortFlag	KEYWORD2
 DoRotate	KEYWORD2
 DoRotateLoop	KEYWORD2
 calcRequireStepCount	KEYWORD2
+suspend	KEYWORD2
 
 #######################################
 # Constants (LITERAL1)

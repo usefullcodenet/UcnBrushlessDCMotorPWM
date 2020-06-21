@@ -3,7 +3,7 @@
 Arduino library that drives brushless DC motor like servo motor.
 
 - Arduino library
-- Drive brushless DC motor with ATMEGA328P, ESP32, ESP8266
+- Drive brushless DC motor with ATMEGA328P, STM32, ESP32, ESP8266
 - Support multiple motors with one MPU
 - Support continuous rotation
 - Support rotation with angle
@@ -17,6 +17,9 @@ Arduino library that drives brushless DC motor like servo motor.
 - ATMEGA328P
 	- Dual motors support
 	- 31KHz PWM frequency
+- STM32
+	- Multiple motors support
+	- High PWM frequency
 - ESP32
 	- Multiple motors support
 	- High PWM frequency
@@ -203,6 +206,11 @@ void loop()
 - 10 pin
 - 11 pin
 
+## STM32(STM32F103)
+- PA0 to PA3
+- PA6 to PA10
+- PB0 to PB1
+- PB6 to PB9
 
 ## ESP32
 - GPIO 0
